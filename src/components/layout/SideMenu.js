@@ -1,17 +1,17 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import { tabs } from '../../constants';
 
 export default function SideMenu({ show, setShow }) {
+    const router = useRouter();
 
     const list = () => (
         <Box
@@ -21,13 +21,13 @@ export default function SideMenu({ show, setShow }) {
             onKeyDown={() => setShow(false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
+                {tabs.map((tab, index) => (
+                    <ListItem key={index} disablePadding>
+                        <ListItemButton onClick={() => router.push(tab.path)}>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                <tab.icon />
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={tab.title} />
                         </ListItemButton>
                     </ListItem>
                 ))}

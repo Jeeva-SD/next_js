@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,8 +8,10 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SideMenu from './SideMenu';
+import { tabs } from '../../constants';
 
-export default function ButtonAppBar() {
+export default function Header() {
+    const router = useRouter();
     const [show, setShow] = React.useState(false);
 
     return (
@@ -26,9 +29,17 @@ export default function ButtonAppBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        News
+                        Jee6
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    {tabs.map(tab => <div key={tab.id}>
+                        <Button
+                            color="inherit"
+                            startIcon={<tab.icon />}
+                            onClick={() => router.push(tab.path)}
+                        >
+                            {tab.title}
+                        </Button>
+                    </div>)}
                 </Toolbar>
             </AppBar>
 

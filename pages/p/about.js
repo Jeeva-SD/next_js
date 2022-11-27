@@ -1,11 +1,10 @@
-import { Box } from '@mui/material';
 import React from 'react';
-import Drawer from '../components/SideMenu';
+import { Box } from '@mui/material';
 
 const about = () => {
     return (
         <Box>
-            <Drawer />
+            Hello this is jee6
         </Box>
     );
 };
