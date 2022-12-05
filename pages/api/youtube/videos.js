@@ -1,5 +1,12 @@
 import { execute } from "../../../src/database/manager";
 import { getVideos, getTrending, getTrendingIds } from "../../../src/database/queries";
+import { generateUrl } from "../../../src/helper.js/generateUrl";
+
+const getUrls = async () => {
+  const videos = await getAllVideos();
+  const urls = videos.map(video => generateUrl(video.title));
+  return urls;
+};
 
 const getAllVideos = async () => {
   const key = 'videoId';
@@ -18,9 +25,11 @@ const getTrendingVideos = async () => {
 };
 
 export default async function handler(req, res) {
-  let videos = [];
-  if (req.query.trending) videos = await getTrendingVideos();
-  else videos = await getAllVideos();
+  let response = [];
 
-  res.status(200).json(videos);
+  if (req.query.trending) response = await getTrendingVideos();
+  else if (req.query.urls) response = await getUrls();
+  else response = await getAllVideos();
+
+  res.status(200).json(response);
 }

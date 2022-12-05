@@ -1,22 +1,20 @@
-import { home, contact, about } from '../assets/icon/muiIcons';
+const prod = true;
+export const host = prod ? 'https://jee6.vercel.app' : 'http://localhost:3000';
 
 export const tabs = [
     {
         id: 'loaxsa',
         title: 'Home',
-        icon: home,
         path: '/'
     },
     {
         id: 'sedssa',
         title: 'About',
-        icon: about,
         path: '/p/about'
     },
     {
         id: 'assaa',
         title: 'Contact',
-        icon: contact,
         path: '/p/contact'
     }
 ];

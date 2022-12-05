@@ -1,11 +1,10 @@
 import React from 'react';
-import { Box } from '@mui/material';
 
 const about = () => {
     return (
-        <Box>
+        <div>
             Hello this is jee6
-        </Box>
+        </div>
     );
 };
 
