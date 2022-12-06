@@ -1,5 +1,5 @@
-const prod = false;
-export const host = prod ? 'https://jee6.vercel.app' : 'http://localhost:3000';
+const prod = true;
+export const host = prod ? 'https://jee6-4t7pwfe4w-jeeva3006.vercel.app' : 'http://localhost:3000';
 
 export const tabs = [
     {
