@@ -10,7 +10,7 @@ export default function Home() {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    axios.get(`${host}/api/youtube/videos?urls=1`).then(res => setUrls(res.data));
+    axios.get(`${process.env.HOST}/api/youtube/videos?urls=1`).then(res => setUrls(res.data));
   }, []);
 
 
