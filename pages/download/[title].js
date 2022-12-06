@@ -7,7 +7,7 @@ import axios from 'axios';
 export const getStaticPaths = async () => {
     try {
         let paths = {};
-        const url = `${host}/api/youtube/videos?urls=1`;
+        const url = `${process.env.HOST}/api/youtube/videos?urls=1`;
 
         const resp = await axios.get(url, { headers: { 'Accept-Encoding': 'application/json' } });
         paths = resp?.data.map(url => ({ params: { title: url } }));
@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
     try {
         let data = [];
-        const url = `${host}/api/youtube/videos`;
+        const url = `${process.env.HOST}/api/youtube/videos`;
 
         const resp = await axios.get(url, { headers: { 'Accept-Encoding': 'application/json' } });
         data = resp?.data.filter(video => generateUrl(video.title) === params.title);
