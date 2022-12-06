@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { host } from '../src/constants/navigation';
 import styles from '../styles/Home.module.css';
 
@@ -9,7 +10,7 @@ export default function Home() {
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    fetch(`${host}/api/youtube/videos?urls=1`).then(res => res.json()).then(data => setUrls(data));
+    axios.get(`${host}/api/youtube/videos?urls=1`).then(res => setUrls(res.data));
   }, []);
 
 
