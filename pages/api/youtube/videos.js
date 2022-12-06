@@ -1,6 +1,6 @@
 import { execute } from "../../../src/database/manager";
 import { getVideos, getTrending, getTrendingIds } from "../../../src/database/queries";
-import { generateUrl } from "../../../src/helper.js/generateUrl";
+import { generateUrl } from "../../../src/helper/generateUrl";
 
 const getUrls = async () => {
   const videos = await getAllVideos();

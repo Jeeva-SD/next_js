@@ -1,18 +1,19 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { host } from '../src/constants/navigation';
+import { GET } from '../src/helper/api';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const response = await GET(`${host}/api/youtube/videos`, { urls: 1 });
+
+  return {
+    props: { data: response }
+  };
+};
+
+export default function Home({ data }) {
   const router = useRouter();
-  const [urls, setUrls] = useState([]);
-
-  useEffect(() => {
-    axios.get(`https://jee6.vercel.app/api/youtube/videos?urls=1`).then(res => setUrls(res.data));
-  }, []);
-
 
   return (
     <div className={styles.container}>
@@ -22,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {urls?.map((url, index) =>
+      {data?.map((url, index) =>
         <li
           key={index}
           onClick={() => router.push(`download/${url}`)}>

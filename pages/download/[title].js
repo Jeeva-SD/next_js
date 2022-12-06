@@ -1,16 +1,14 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { host } from '../../src/constants/navigation';
-import { generateUrl } from '../../src/helper.js/generateUrl';
-import axios from 'axios';
+import { GET } from '../../src/helper/api';
+import { generateUrl } from '../../src/helper/generateUrl';
 
 export const getStaticPaths = async () => {
     try {
         let paths = {};
-        const url = `https://jee6.vercel.app/api/youtube/videos?urls=1`;
-
-        const resp = await axios.get(url, { headers: { 'Accept-Encoding': 'application/json' } });
-        paths = resp?.data.map(url => ({ params: { title: url } }));
+        const response = await GET(`${host}/api/youtube/videos`, { urls: 1 });
+        paths = response?.map(url => ({ params: { title: url } }));
 
         return { paths, fallback: false };
     } catch (err) {
@@ -21,10 +19,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
     try {
         let data = [];
-        const url = `https://jee6.vercel.app/api/youtube/videos`;
-
-        const resp = await axios.get(url, { headers: { 'Accept-Encoding': 'application/json' } });
-        data = resp?.data.filter(video => generateUrl(video.title) === params.title);
+        const response = await GET(`${host}/api/youtube/videos`);
+        data = response?.filter(video => generateUrl(video.title) === params.title);
 
         return {
             props: { data }
@@ -48,8 +44,8 @@ const Title = ({ data }) => {
             </pre>
         </div>
     );
-    
-    return <h1> Deployed </h1>
+
+    return <h1> Deployed </h1>;
 };
 
 export default Title;
