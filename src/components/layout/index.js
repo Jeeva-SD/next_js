@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const index = ({ children }) => {
     return (
-        <Container fluid>
+        <Container fluid className='p-0'>
             <Header />
             {children}
             <Footer />
