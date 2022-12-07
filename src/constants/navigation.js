@@ -1,7 +1,7 @@
 import { AiTwotoneFire, AiFillHome } from 'react-icons/ai';
 import { BsFillTelephoneFill, BsFillPersonFill } from 'react-icons/bs';
 
-const prod = false;
+const prod = true;
 export const host = prod ? 'https://jee6.vercel.app' : 'http://localhost:3000';
 
 export const homeTabs = [
