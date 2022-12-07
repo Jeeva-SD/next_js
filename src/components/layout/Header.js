@@ -12,7 +12,7 @@ const Header = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     // const [show, setShow] = useState(false);
-    const expand = 'xlg';
+    const expand = 'sm';
 
     router?.events?.on('routeChangeStart', () => setLoading(true));
     router?.events?.on('routeChangeComplete', () => setLoading(false));
