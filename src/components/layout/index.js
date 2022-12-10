@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Header from './Header';
 import Social from '../social';
-import SideBar from '../Sidebar';
+import SideBar from '../sidebar';
 import Footer from './Footer';
 
 const index = ({ children }) => {
