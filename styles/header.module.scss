@@ -1,14 +1,28 @@
 .header {
+    padding: 10px;
     color: white;
+}
 
-    .nav_link {
-        display: flex;
-        align-items: center;
-    }
+.nav_link {
+    display: flex;
+    align-items: center;
+}
 
-    .nav_link_active {
-        display: flex;
-        align-items: center;
-        text-decoration: underline;
-    }
+.nav_content {
+    padding: 0px 5px;
+}
+
+.nav_link_active {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px dotted #f9dd94;
+    color: #f9dd94;
+}
+
+.nav_bar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    margin-top: 0px;
+    z-index: 999;
 }

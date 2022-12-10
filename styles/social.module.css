@@ -1,0 +1,30 @@
+.social_icon {
+    font-size: 50px;
+}
+
+.facebook {
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.youtube {
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.instagram {
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.facebook:hover {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+.youtube:hover {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+.instagram:hover {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}

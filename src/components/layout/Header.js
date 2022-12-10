@@ -4,24 +4,23 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Progress from './Progress';
+import Progress from '../common/Progress';
 import { homeTabs } from '../../constants/navigation';
 import style from '../../../styles/header.module.scss';
 
 const Header = () => {
+    const expand = 'sm';
     const router = useRouter();
     const [loading, setLoading] = useState(false);
-    // const [show, setShow] = useState(false);
-    const expand = 'sm';
 
     router?.events?.on('routeChangeStart', () => setLoading(true));
     router?.events?.on('routeChangeComplete', () => setLoading(false));
     router?.events?.on('routeChangeError', () => setLoading(false));
 
     return (
-        <div className='mb-3'>
+        <div className={`${style.nav_bar} shadow`}>
             <Navbar bg="dark" variant='dark' expand={expand} className={`${style.header}`}>
-                <Container fluid>
+                <Container>
                     <Navbar.Brand className={style.brand}>Jee6</Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                     <Navbar.Collapse>
@@ -46,7 +45,7 @@ const Header = () => {
                                             onClick={() => {
                                                 router.push(tab.path);
                                             }}>
-                                            {tab.icon} {tab.title}
+                                            <><span>{tab.icon}<span className={style.nav_content}>{tab.title}</span></span></>
                                         </Nav.Link>
                                     ))}
                                 </Nav>

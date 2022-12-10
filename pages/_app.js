@@ -2,9 +2,18 @@ import Layout from '../src/components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+export const getStaticProps = async () => {
+  const response = await GET(`${host}/api/youtube/videos`);
+
+  return {
+    props: { videos: response }
+  };
+};
+
+function MyApp({ Component, pageProps, videos }) {
+
   return (
-    <Layout>
+    <Layout videos={videos}>
       <Component {...pageProps} />
     </Layout>
   );

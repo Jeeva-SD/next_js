@@ -1,9 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Carter+One:400);
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h3 {
+  font-family: Carter One;
+  opacity: 0.8;
+  display: inline;
+  border-bottom: 3px solid #f9dd94;
 }
 
 * {
