@@ -8,19 +8,27 @@ const getUrls = async () => {
   return urls;
 };
 
-const getAllVideos = async () => {
+const getAllVideos = async (query) => {
+  const { page, count } = query;
+
   const key = 'videoId';
   const result = await execute(getVideos);
+  let videoData = [...new Map(result.map(item => [item[key], item])).values()];
 
-  return [...new Map(result.map(item => [item[key], item])).values()];
+  if (page && count) videoData = videoData.splice((page - 1) * count, count);
+  return videoData;
 };
 
 const getTrendingVideos = async (query) => {
+  const { count } = query;
+
   const trendingIds = await execute(getTrendingIds);
   const ids = trendingIds.map(e => e.videoId);
-  const trendingVideos = await execute(getTrending, [ids]);
+  let trendingVideos = await execute(getTrending, [ids]);
+  trendingVideos = trendingVideos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
   const lastUpdatedTime = trendingVideos?.length > 0 ? trendingVideos[0]?.videoId : null;
 
+  if (count) trendingVideos = trendingVideos.splice(0, count);
   return { lastUpdatedTime, trendingVideos };
 };
 
@@ -29,7 +37,7 @@ export default async function handler(req, res) {
 
   if (req.query.trending) response = await getTrendingVideos(req.query);
   else if (req.query.urls) response = await getUrls();
-  else response = await getAllVideos();
+  else response = await getAllVideos(req.query);
 
   res.status(200).json(response);
 }
