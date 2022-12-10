@@ -1,5 +1,5 @@
 import { execute } from "../../../src/database/manager";
-import { getVideos, getTrending, getTrendingIds } from "../../../src/database/queries";
+import { getVideos, getTrending, getTrendingIds, getTotalVideoCount } from "../../../src/database/queries";
 import { generateUrl } from "../../../src/helper/generateUrl";
 
 const getUrls = async () => {
@@ -35,11 +35,17 @@ const getTrendingVideos = async ({ count = 0 }) => {
   return { lastUpdatedTime, trendingVideos };
 };
 
+const getTotalCount = async () => {
+  const videoCount = await execute(getTotalVideoCount);
+  return videoCount[0]?.total;
+};
+
 export default async function handler(req, res) {
   let response = [];
 
   if (req.query.trending) response = await getTrendingVideos(req.query);
   else if (req.query.urls) response = await getUrls();
+  else if (req.query.videoCount) response = await getTotalCount();
   else if (req.query.page) response = await getVideosByPage(req.query);
   else response = await getAllVideos();
 
