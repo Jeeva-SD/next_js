@@ -1,7 +1,5 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
-import { BsFacebook } from 'react-icons/bs';
 import { socialProfiles } from '../../constants/social';
 import style from '../../../styles/social.module.css';
 

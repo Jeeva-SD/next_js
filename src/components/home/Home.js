@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Container, Row, Card } from 'react-bootstrap';
-import { BiTimeFive } from 'react-icons/bi';
+// import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import Divider from '../common/Divider';
-import style from '../../../styles/home_page.module.scss';
 import { generateUrl } from '../../helper/generateUrl';
+import style from '../../../styles/home_page.module.scss';
 
 const Build = ({ videos, router }) => {
 
@@ -41,13 +41,13 @@ const Build = ({ videos, router }) => {
                                     <Col className={`${style.card_col} col-1 p-0`}>
                                         <Divider type={1} />
                                     </Col>
-                                    <Col className={`${style.duration} col-3 p-0`}>
+                                    {/* <Col className={`${style.duration} col-3 p-0`}>
                                         <BiTimeFive />
                                         <span className={style.footer_span}>2min 50sec</span>
                                     </Col>
                                     <Col className={`${style.card_col} col-1 p-0`}>
                                         <Divider type={1} />
-                                    </Col>
+                                    </Col> */}
                                     <Col className={`${style.card_col} col-3 p-0`} onClick={() => router.push(`download/${generateUrl(video.title)}`)}>
                                         <AiOutlineDownload />
                                         <span className={style.footer_span}><b className={style.bold_download}>Download</b></span>

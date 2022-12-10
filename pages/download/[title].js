@@ -1,15 +1,14 @@
 import React from 'react';
-// import { useRouter } from 'next/router';
 import { host } from '../../src/constants/navigation';
 import { GET } from '../../src/helper/api';
 import { generateUrl } from '../../src/helper/generateUrl';
-import DownloadContent from '../../src/components/home/DownloadContent';
+import VideoDetail from '../../src/components/download/VideoDetail';
 
 export const getStaticPaths = async () => {
     try {
         let paths = {};
         const response = await GET(`${host}/api/youtube/videos`, { urls: 1 });
-        paths = response?.map(url => ({ params: { title: url } }));
+        paths = response?.splice(1, 5).map(url => ({ params: { title: url } }));
 
         return { paths, fallback: false };
     } catch (err) {
@@ -35,13 +34,7 @@ const Title = ({ data }) => {
     const video = data && data.length > 0 ? data[0] : [{}];
 
     return (
-        <div style={{ width: '80%', overflowWrap: 'break-word' }}>
-            {/* <Image src={video.thumbnail} alt={video.title} /> */}
-            <div>Title: {video.title}</div>
-            <pre style={{ overflowWrap: 'break-word' }}>
-                {video.description}
-            </pre>
-        </div>
+        <VideoDetail video={video} />
     );
 };
 

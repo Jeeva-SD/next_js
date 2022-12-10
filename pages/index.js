@@ -9,7 +9,7 @@ export const getStaticProps = async () => {
   const response = await GET(`${host}/api/youtube/videos`);
 
   return {
-    props: { videos: response }
+    props: { videos: response.splice(1, 5) }
   };
 };
 

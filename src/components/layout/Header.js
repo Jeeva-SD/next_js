@@ -18,7 +18,7 @@ const Header = () => {
     router?.events?.on('routeChangeError', () => setLoading(false));
 
     return (
-        <div className={`${style.nav_bar} shadow`}>
+        <div className={`${style.nav_bar} shadow p-0`}>
             <Navbar bg="dark" variant='dark' expand={expand} className={`${style.header}`}>
                 <Container>
                     <Navbar.Brand className={style.brand}>Jee6</Navbar.Brand>

@@ -15,7 +15,7 @@ const getAllVideos = async () => {
   return [...new Map(result.map(item => [item[key], item])).values()];
 };
 
-const getTrendingVideos = async () => {
+const getTrendingVideos = async (query) => {
   const trendingIds = await execute(getTrendingIds);
   const ids = trendingIds.map(e => e.videoId);
   const trendingVideos = await execute(getTrending, [ids]);
@@ -27,7 +27,7 @@ const getTrendingVideos = async () => {
 export default async function handler(req, res) {
   let response = [];
 
-  if (req.query.trending) response = await getTrendingVideos();
+  if (req.query.trending) response = await getTrendingVideos(req.query);
   else if (req.query.urls) response = await getUrls();
   else response = await getAllVideos();
 

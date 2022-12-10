@@ -1,6 +1,7 @@
 import React from 'react';
 
-const index = () => {
+const index = ({ videos }) => {
+
     return (
         <div>
             Hello
