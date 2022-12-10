@@ -6,7 +6,7 @@ import { host } from '../src/constants/navigation';
 import { GET } from '../src/helper/api';
 
 export const getStaticProps = async () => {
-  const response = await GET(`${host}/api/youtube/videos?page=1&count=15`);
+  const response = await GET(`${host}/api/youtube/videos`);
 
   return {
     props: { videos: response }
