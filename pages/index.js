@@ -6,10 +6,10 @@ import { host } from '../src/constants/navigation';
 import { GET } from '../src/helper/api';
 
 export const getStaticProps = async () => {
-  const response = await GET(`${host}/api/youtube/videos`);
+  const response = await GET(`${host}/api/youtube/videos?page=1&count=15`);
 
   return {
-    props: { videos: response.splice(1, 5) }
+    props: { videos: response }
   };
 };
 

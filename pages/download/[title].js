@@ -8,7 +8,7 @@ export const getStaticPaths = async () => {
     try {
         let paths = {};
         const response = await GET(`${host}/api/youtube/videos`, { urls: 1 });
-        paths = response?.splice(1, 5).map(url => ({ params: { title: url } }));
+        paths = response?.map(url => ({ params: { title: url } }));
 
         return { paths, fallback: false };
     } catch (err) {

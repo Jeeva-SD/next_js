@@ -8,20 +8,23 @@ const getUrls = async () => {
   return urls;
 };
 
-const getAllVideos = async (query) => {
-  const { page, count } = query;
+const getAllVideos = async () => {
+  const key = 'videoId';
+  const result = await execute(getVideos);
 
+  return [...new Map(result.map(item => [item[key], item])).values()];
+};
+
+const getVideosByPage = async ({ page = 0, count = 0 }) => {
   const key = 'videoId';
   const result = await execute(getVideos);
   let videoData = [...new Map(result.map(item => [item[key], item])).values()];
 
-  if (page && count) videoData = videoData.splice((page - 1) * count, count);
+  if (page && count) return [...videoData?.splice(((page - 1) * count), count)];
   return videoData;
 };
 
-const getTrendingVideos = async (query) => {
-  const { count } = query;
-
+const getTrendingVideos = async ({ count = 0 }) => {
   const trendingIds = await execute(getTrendingIds);
   const ids = trendingIds.map(e => e.videoId);
   let trendingVideos = await execute(getTrending, [ids]);
@@ -37,7 +40,8 @@ export default async function handler(req, res) {
 
   if (req.query.trending) response = await getTrendingVideos(req.query);
   else if (req.query.urls) response = await getUrls();
-  else response = await getAllVideos(req.query);
+  else if (req.query.page) response = await getVideosByPage(req.query);
+  else response = await getAllVideos();
 
   res.status(200).json(response);
 }
