@@ -48,7 +48,7 @@ const Build = ({ videos, router }) => {
                                     <Col className={`${style.card_col} col-1 p-0`}>
                                         <Divider type={1} />
                                     </Col> */}
-                                    <Col className={`${style.card_col} col-3 p-0`} onClick={() => router.push(`download/${generateUrl(video.title)}`)}>
+                                    <Col className={`${style.card_col} col-3 p-0`} onClick={() => router.push(`${generateUrl(video.title)}`)}>
                                         <AiOutlineDownload />
                                         <span className={style.footer_span}><b className={style.bold_download}>Download</b></span>
                                     </Col>

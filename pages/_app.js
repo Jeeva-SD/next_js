@@ -1,6 +1,7 @@
 import Layout from '../src/components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
+import { host } from '../src/constants/config';
 
 export const getStaticProps = async () => {
   const response = await GET(`${host}/api/youtube/videos`);

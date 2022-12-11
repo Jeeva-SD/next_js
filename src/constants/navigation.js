@@ -1,10 +1,6 @@
 import { AiTwotoneFire, AiFillHome } from 'react-icons/ai';
 import { BsFillTelephoneFill, BsFillPersonFill } from 'react-icons/bs';
 
-const prod = true;
-export const host = prod ? 'https://jee6.vercel.app' : 'http://localhost:3000';
-
-// https://jee6.vercel.app  https://startling-fairy-195a44.netlify.app
 export const homeTabs = [
     {
         id: 'loaxsa',

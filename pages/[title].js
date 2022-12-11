@@ -1,14 +1,13 @@
 import React from 'react';
-import { host } from '../../src/constants/navigation';
-import { GET } from '../../src/helper/api';
-import { generateUrl } from '../../src/helper/generateUrl';
-import VideoDetail from '../../src/components/download/VideoDetail';
+import { GET } from '../src/helper/api';
+import { host } from '../src/constants/config';
+import { generateUrl } from '../src/helper/generateUrl';
+import SongDetail from '../src/components/song/SongDetail';
 
 export const getStaticPaths = async () => {
     try {
-        let paths = {};
-        const response = await GET(`${host}/api/youtube/videos`, { urls: 1 });
-        paths = response?.map(url => ({ params: { title: url } }));
+        const songTitles = await GET(`${host}/api/youtube/videos`, { urls: 1 });
+        const paths = songTitles?.map(title => ({ params: { title } }));
 
         return { paths, fallback: false };
     } catch (err) {
@@ -18,9 +17,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     try {
-        let data = [];
         const response = await GET(`${host}/api/youtube/videos`);
-        data = response?.filter(video => generateUrl(video.title) === params.title);
+        const data = response?.filter(video => generateUrl(video.title) === params.title);
 
         return {
             props: { data }
@@ -34,7 +32,7 @@ const Title = ({ data }) => {
     const video = data && data.length > 0 ? data[0] : [{}];
 
     return (
-        <VideoDetail video={video} />
+        <SongDetail video={video} />
     );
 };
 

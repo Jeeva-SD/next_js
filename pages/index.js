@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Container } from 'react-bootstrap';
-import HomeContent from '../src/components/home/Home';
-import { host } from '../src/constants/navigation';
+import SongCard from '../src/components/song/SongCard';
+import { host } from '../src/constants/config';
 import { GET } from '../src/helper/api';
 
 export const getStaticProps = async () => {
@@ -25,7 +25,7 @@ export default function Home({ videos }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeContent videos={videos} router={router} />
+      <SongCard videos={videos} router={router} />
     </Container >
   );
 }
