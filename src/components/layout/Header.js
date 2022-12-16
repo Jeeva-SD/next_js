@@ -21,7 +21,7 @@ const Header = () => {
         <div className={`${style.nav_bar} shadow p-0`}>
             <Navbar bg="dark" variant='dark' expand={expand} className={`${style.header}`}>
                 <Container>
-                    <Navbar.Brand className={style.brand}>Jee6</Navbar.Brand>
+                    <Navbar.Brand className={`${style.brand} pointer`} onClick={() => router.push('/')}>Jee6</Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                     <Navbar.Collapse>
                         <Navbar.Offcanvas

@@ -5,23 +5,23 @@ export const socialProfiles = [
     {
         name: 'jeeva_b06',
         url: 'https://www.instagram.com/jeeva_b06',
-        icon: <AiFillInstagram color={'#8a3ab9'} />,
+        icon: <AiFillInstagram color={'#8a3ab9'} fontSize={'50px'} />,
         color: '#8a3ab9',
-        social: 'instagram'
+        social: 'Instagram'
     },
     {
         name: 'jee__6',
         url: 'https://www.facebook.com/people/Jeeva-B/100010571169792',
-        icon: <BsFacebook color={'blue'} />,
+        icon: <BsFacebook color={'blue'} fontSize={'50px'} />,
         color: 'blue',
-        social: 'facebook'
+        social: 'Facebook'
     },
     {
         name: 'Jeeva B',
         url: 'https://www.youtube.com/@jee__6334',
-        icon: <AiFillYoutube color={'red'} />,
+        icon: <AiFillYoutube color={'red'} fontSize={'50px'} />,
         color: 'red',
-        social: 'youtube'
+        social: 'Youtube'
     }
 ];
 
@@ -29,4 +29,3 @@ export const socialProfiles = [
 // let time = a.replace("PT", "");
 //      time = time.replace("M", "min ");
 //      time = time.replace("S", "sec ");
-// https://fonts.google.com/specimen/Archivo+Black?preview.text=SOCIAL&preview.text_type=custom#styles

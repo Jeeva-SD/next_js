@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
             <Row className='w-100 m-0 p-0'>
                 <Header />
             </Row>
-            <Row className='w-100 m-0 justify-content-evenly pt-3'>
+            <Row className='w-100 m-0 justify-content-evenly pt-3 pb-5'>
                 <Col xl={8} lg={8} md={10} sm={10} xs={12}>
                     {children}
                 </Col>
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
                     <TrendingSideBar />
                 </Col>
             </Row>
-            <Row className='w-100 m-0 p-0'>
+            <Row className='w-100 m-0 p-0 pt-5'>
                 <Footer />
             </Row>
         </Container>

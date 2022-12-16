@@ -1,42 +1,72 @@
-@import url(https://fonts.googleapis.com/css?family=Carter+One:400);
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Mulish:700);
 
-html,
-body {
+html {
   padding: 0;
   margin: 0;
+  height: 100%;
+  min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body{
+  position: relative;
+  min-height: 100%;
 }
 
 * {
   box-sizing: border-box;
 }
 
+h1{
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: -.02em;
+  text-align: center;
+}
 
 h3 {
-  font-family: Carter One;
+  font-family: Mulish;
   margin: auto;
 }
 
 h6 {
-  /* font-family: 'Bebas Neue', cursive; */
-  font-size: 13px;
-  font-weight: bold;
-  opacity: 0.8;
   display: inline;
-  word-break: break-word;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
   padding: auto;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  line-clamp: 2;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  font-size: 14px;
+  font-family: Mulish, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+}
+
+.pointer:hover{
+  cursor: pointer;
 }
 
 .underline{
+  margin-top: -8px;
   fill: orange;
+}
+
+.social_card:hover{
+  border-color: orange;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.published_date{
+  font-size: 14px;
+}
+
+.footer{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ left: 0;
+  background-color: #cdcdcd;
 }
 
 @media (prefers-color-scheme: dark) {

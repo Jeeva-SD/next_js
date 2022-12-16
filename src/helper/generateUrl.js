@@ -23,3 +23,13 @@ export const generateDescription = title => {
     const titleKeyWord = title?.replace(/[^a-zA-Z ]/g, " ").split("|")[0];
     return titleKeyWord?.replace(/  +/g, " ").trim().split(" ").join("-").toLowerCase();
 };
+
+export const getPublishedTime = time => {
+    const d = new Date(time);
+
+    const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+    const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+    const date = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+
+    return `${date} ${month} ${year}`;
+};
