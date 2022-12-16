@@ -41,7 +41,7 @@ const about = () => {
                         to your gallery without any third party plugins
                     </p>
                     <p>
-                        And unlike other sites, We doesn't push you with tons of ads such as pop up's. So you can easily download your
+                        And unlike other sites, We do not push you with tons of ads such as pop up ads. So you can easily download your
                         interested songs with your simle on face.
                     </p>
                 </Col>
