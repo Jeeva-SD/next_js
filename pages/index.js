@@ -11,7 +11,7 @@ export const getStaticProps = async () => {
 
   return {
     props: { videos: response },
-    revalidate: 600
+    // revalidate: 600
   };
 };
 

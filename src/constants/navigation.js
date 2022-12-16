@@ -8,12 +8,6 @@ export const homeTabs = [
         path: '/',
         icon: <AiFillHome />
     },
-    // {
-    //     id: 'loaxsa',
-    //     title: 'Trending',
-    //     path: '/trending',
-    //     icon: <AiTwotoneFire />
-    // },
     {
         id: 'sedssa',
         title: 'About',
@@ -27,3 +21,10 @@ export const homeTabs = [
         icon: <BsFillTelephoneFill />
     }
 ];
+
+ // {
+    //     id: 'loaxsa',
+    //     title: 'Trending',
+    //     path: '/trending',
+    //     icon: <AiTwotoneFire />
+    // },

@@ -9,7 +9,7 @@ export const getStaticPaths = async () => {
         const songTitles = await GET(`${host}/api/youtube/videos`, { urls: 1 });
         const paths = songTitles?.map(title => ({ params: { title } }));
 
-        return { paths, fallback: true };
+        return { paths, fallback: false };
     } catch (err) {
         console.error(err);
     }
