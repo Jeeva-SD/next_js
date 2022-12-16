@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Carter+One:400);
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 html,
 body {
@@ -8,15 +9,34 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-h3 {
-  font-family: Carter One;
-  opacity: 0.8;
-  display: inline;
-  border-bottom: 3px solid #f9dd94;
-}
-
 * {
   box-sizing: border-box;
+}
+
+
+h3 {
+  font-family: Carter One;
+  margin: auto;
+}
+
+h6 {
+  /* font-family: 'Bebas Neue', cursive; */
+  font-size: 13px;
+  font-weight: bold;
+  opacity: 0.8;
+  display: inline;
+  word-break: break-word;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: auto;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.underline{
+  fill: orange;
 }
 
 @media (prefers-color-scheme: dark) {

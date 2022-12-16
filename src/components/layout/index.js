@@ -12,11 +12,11 @@ const Layout = ({ children }) => {
             <Row className='w-100 m-0 p-0'>
                 <Header />
             </Row>
-            <Row className='w-100 m-0 p-0'>
-                <Col lg={8} md={8} sm={10}>
+            <Row className='w-100 m-0 justify-content-evenly pt-3'>
+                <Col xl={8} lg={8} md={10} sm={10} xs={12}>
                     {children}
                 </Col>
-                <Col lg={4} md={4} sm={12}>
+                <Col xl={3} lg={3} md={8} sm={12} xs={12}>
                     <Social />
                     <TrendingSideBar />
                 </Col>

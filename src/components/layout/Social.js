@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { socialProfiles } from '../../constants/social';
 import style from '../../../styles/social.module.css';
+import Underline from '../common/Underline';
 
 const Social = () => {
     return (
@@ -9,6 +10,7 @@ const Social = () => {
             <Row className='d-flex justify-content-evenly pt-3 w-100 '>
                 <Col className='col-12 text-center'>
                     <h3>SOCIAL</h3>
+                    <Underline />
                 </Col>
                 <Col className={`${style.social_icon} text-center`}>
                     {socialProfiles?.map((profile, index) => (

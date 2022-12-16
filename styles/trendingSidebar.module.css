@@ -1,0 +1,40 @@
+/* .side_text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.sidebar{
+    height: 200px;
+    width: 500px;
+}
+
+.sidebar_row{
+    /* transition: box-shadow .3s; */
+    transition: border-left .3s;
+}
+
+.sidebar_row:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+.span{
+    border-left: 1px solid orange;
+}
+
+.h5{
+    /* font-family: 'Bebas Neue', cursive;
+    font-size: 15px; */
+}
+
+.trending_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

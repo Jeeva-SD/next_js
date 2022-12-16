@@ -34,11 +34,11 @@ const Build = ({ videos, router }) => {
                                 <Divider />
 
                                 <Row className={`${style.card_footer} text-muted justify-content-center`}>
-                                    <Col className={`${style.channel_title} col-3 p-0`}>
+                                    <Col className={`${style.channel_title} col-4 p-0`}>
                                         <AiFillCrown color='orange' />
                                         <span className={style.footer_span}>{video.channelTitle}</span>
                                     </Col>
-                                    <Col className={`${style.card_col} col-1 p-0`}>
+                                    <Col className={`${style.card_col} col-1 px-1`}>
                                         <Divider type={1} />
                                     </Col>
                                     {/* <Col className={`${style.duration} col-3 p-0`}>
@@ -48,7 +48,7 @@ const Build = ({ videos, router }) => {
                                     <Col className={`${style.card_col} col-1 p-0`}>
                                         <Divider type={1} />
                                     </Col> */}
-                                    <Col className={`${style.card_col} col-3 p-0`} onClick={() => router.push(`${generateUrl(video.title)}`)}>
+                                    <Col className={`${style.card_col} col-4 p-0`} onClick={() => router.push(`${generateUrl(video.title)}`)}>
                                         <AiOutlineDownload />
                                         <span className={style.footer_span}><b className={style.bold_download}>Download</b></span>
                                     </Col>

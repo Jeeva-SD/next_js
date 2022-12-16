@@ -3,12 +3,13 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import { getPlayTime } from '../../helper/getPlayTime';
+import { generateTitle } from '../../helper/generateUrl';
 
 const VideoCard = ({ video }) => {
     return (
         <Container className='mt-5 m-0 p-0'>
             <Row className='pt-3 justify-content-center'>
-                <Col className='col-10'><h1>{video.title}</h1></Col>
+                <Col className='col-10'><h1>{generateTitle(video.title)}</h1></Col>
             </Row>
 
             <Row style={{ fontSize: '20px' }} className='justify-content-center m-0 mt-5'>
