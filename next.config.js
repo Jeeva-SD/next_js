@@ -4,6 +4,6 @@ const nextConfig = {
   env: {
     HOST: process.env.HOST,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

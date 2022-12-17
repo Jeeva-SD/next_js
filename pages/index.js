@@ -23,8 +23,8 @@ export default function Home({ videos }) {
       <Head>
         <title>Jee6 | Trending Songs</title>
         <meta charset="UTF-8" />
-        <meta http-equiv="Content-Language" content="en_US" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="Content-Language" content="en_US" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content='Jee6 allows you to download the latest trending songs in India' />
@@ -60,7 +60,7 @@ export default function Home({ videos }) {
         <link rel="icon" type="image/png" sizes="96x96" href="/vm/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/vm/favicon-16x16.png" />
         <meta name="msapplication-TileImage" content="/vm/ms-icon-144x144.png" /> */}
-        <link rel="manifest" href=".next/build-manifest.json" />
+        {/* <link rel="manifest" href=".next/build-manifest.json" /> */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta itemProp="isFamilyFriendly" content="true" />
         <meta itemProp="copyrightYear" content="2022" />
