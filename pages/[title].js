@@ -1,8 +1,9 @@
 import React from 'react';
 import { GET } from '../src/helper/api';
 import { host } from '../src/constants/config';
-import { generateUrl } from '../src/helper/generateUrl';
+import { generateDescription, generateTags, generateTitle, generateUrl } from '../src/helper/generateUrl';
 import SongDetail from '../src/components/song/SongDetail';
+import Head from 'next/head';
 
 export const getStaticPaths = async () => {
     try {
@@ -28,12 +29,25 @@ export const getStaticProps = async ({ params }) => {
     }
 };
 
-const Title = ({ data }) => {
+const Post = ({ data }) => {
     const video = data && data.length > 0 ? data[0] : [{}];
+    const title = generateTitle(video.title);
+    const description = generateDescription({ ...video, title });
+    const tags = generateTags({ ...video, title });
 
     return (
-        <SongDetail video={video} />
+        <>
+            <Head>
+                <title>{title}</title>
+                <meta name="description" content={description} />
+                <meta name="keywords" content={tags}></meta>
+                <meta name="robots" content="index, follow" />
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+            </Head>
+            <SongDetail video={video} title={title} />
+        </>
     );
 };
 
-export default Title;
+export default Post;
