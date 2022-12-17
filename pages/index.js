@@ -22,7 +22,7 @@ export default function Home({ videos }) {
     <Container>
       <Head>
         <title>Jee6 | Trending Songs</title>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta httpEquiv="Content-Language" content="en_US" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="robots" content="index, follow" />
