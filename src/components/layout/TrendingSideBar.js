@@ -15,8 +15,8 @@ const TrendingSideBar = () => {
     const [trendingVideos, setTrendingVideos] = useState([]);
 
     useEffect(() => {
-        GET(`${host}/api/youtube/videos`, { trending: 1, count: 15 })
-            .then(data => setTrendingVideos(data));
+        GET(`${host}/api/youtube/video/trending`, { trending: 1, count: 15 })
+            .then(response => setTrendingVideos(response.data));
     }, []);
 
     return (

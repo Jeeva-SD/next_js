@@ -9,7 +9,7 @@ import { host } from '../../constants/config';
 
 const VideoCard = ({ video, title }) => {
 
-    const handleDownload = videoId => window.open(`${host}/api/youtube/download?id=${videoId}&format=audio`);
+    const handleDownload = videoId => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`);
 
     return (
         <Container className='mt-5 m-0 p-0'>

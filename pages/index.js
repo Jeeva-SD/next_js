@@ -6,11 +6,11 @@ import { host } from '../src/constants/config';
 import { GET } from '../src/helper/api';
 
 export const getStaticProps = async () => {
-  const response = await GET(`${host}/api/youtube/videos`, { page: 1, count: 18 });
+  const response = await GET(`${host}/api/youtube/video/list`, { page: 1, count: 18 });
   // const totalVideos = await GET(`${host}/api/youtube/videos`, { videoCount:1 });
 
   return {
-    props: { videos: response },
+    props: { videos: response.data },
     // revalidate: 600
   };
 };

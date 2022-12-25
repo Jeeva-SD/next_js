@@ -11,7 +11,7 @@ const Build = ({ videos, router }) => {
     return (
         <Container className={`mt-5 ${style.home_card_container}`}>
             <Row>
-                {videos?.map((video, index) => (
+                {videos?.slice(0, 15).map((video, index) => (
                     <Col lg={4} md={6} sm={12}
                         className={`${style.video_card}`}
                         key={index}

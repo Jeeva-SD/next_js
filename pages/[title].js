@@ -7,10 +7,10 @@ import Head from 'next/head';
 
 export const getStaticPaths = async () => {
     try {
-        const songTitles = await GET(`${host}/api/youtube/videos`, { urls: 1 });
+        const songTitles = await GET(`${host}/api/youtube/video/url`);
         const paths = songTitles?.map(title => ({ params: { title } }));
 
-        return { paths, fallback: false };
+        return { paths, fallback: 'blocking' };
     } catch (err) {
         console.error(err);
     }
@@ -18,11 +18,12 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     try {
-        const response = await GET(`${host}/api/youtube/videos`);
-        const data = response?.filter(video => generateUrl(video.title) === params.title);
+        const response = await GET(`${host}/api/youtube/video/list`);
+        const data = response?.data.filter(video => generateUrl(video.title) === params.title);
 
         return {
-            props: { data }
+            props: { data },
+            revalidate: 600,
         };
     } catch (err) {
         console.error(err);
