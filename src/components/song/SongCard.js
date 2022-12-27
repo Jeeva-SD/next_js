@@ -19,6 +19,7 @@ const Build = ({ videos, router }) => {
                         <Card className={`${style.card} shadow-sm p-3 my-3 bg-body rounded`}>
                             <Card.Img
                                 className={style.card_image}
+                                alt={video.title}
                                 draggable="false"
                                 variant="top"
                                 src={video.thumbnail} />
