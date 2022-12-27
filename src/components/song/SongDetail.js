@@ -8,7 +8,6 @@ import { getPublishedTime } from '../../helper/generateUrl';
 import { host } from '../../constants/config';
 
 const VideoCard = ({ video, title }) => {
-
     const handleDownload = videoId => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`);
 
     return (
