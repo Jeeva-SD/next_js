@@ -10,8 +10,8 @@ export const getStaticProps = async () => {
   // const totalVideos = await GET(`${host}/api/youtube/videos`, { videoCount:1 });
 
   return {
-    props: { videos: response.data },
-    // revalidate: 600
+    props: { videos: response?.data },
+    revalidate: 600
   };
 };
 
