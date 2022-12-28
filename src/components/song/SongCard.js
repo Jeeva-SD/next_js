@@ -1,11 +1,11 @@
 import React from 'react';
+import Image from 'next/image';
 import { Col, Container, Row, Card } from 'react-bootstrap';
 // import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import Divider from '../common/Divider';
 import { generateUrl } from '../../helper/generateUrl';
 import style from '../../../styles/home_page.module.scss';
-import Image from 'next/image';
 
 const Build = ({ videos, router }) => {
 
@@ -21,12 +21,13 @@ const Build = ({ videos, router }) => {
                         >
                             <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 bg-body rounded`}>
                                 <Image
-                                    width={350}
-                                    height={200}
+                                    width="350"
+                                    height="200"
                                     src={imageLink}
                                     alt={video.title}
                                     className='img-fluid img_shine'
-                                    // loader={() => imageLink}
+                                    quality={40}
+                                    priority={true}
                                     draggable="false"
                                 />
 

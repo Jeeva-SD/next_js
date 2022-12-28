@@ -20,7 +20,10 @@ const VideoCard = ({ video, title }) => {
 
             <Row className='w-100 justify-content-center m-0 p-0'>
                 <Col xl={8} lg={8} md={8} sm={12} xs={12} className='mt-3 text-center'>
-                    <Image draggable="false" className='shadow img-fluid' src={video.thumbnail} alt={video.title} width={500} height={200} />
+                    <Image draggable="false" className='shadow img-fluid' src={video.thumbnail} alt={video.title} width={500} height={200}
+                        quality={40}
+                        priority={true}
+                    />
                 </Col>
             </Row>
 
