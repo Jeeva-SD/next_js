@@ -30,7 +30,7 @@ const contact = () => {
             </Row>
 
             <Row className='justify-content-center'>
-                {contacts?.map((contact, index) => <Col className='col-3' key={index}>
+                {contacts?.map((contact, index) => <Col xl={3} lg={3} md={3} sm={8} xs={8} key={index}>
                     <Card>
                         <Card.Body>
                             <Card.Title>{contact.name}</Card.Title>

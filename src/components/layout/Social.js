@@ -7,7 +7,7 @@ const Social = () => {
 
     return (
         <Container className='mt-5'>
-            <Row className='justify-content-evenly pt-3 w-100'>
+            <Row className='justify-content-evenly pt-3'>
                 <Col className='col-12 text-center'>
                     <h3>Social</h3>
                     <Underline />
