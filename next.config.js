@@ -10,7 +10,6 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'i.ytimg.com',
-        formats: ["image/webp"],
       }]
   },
 };
