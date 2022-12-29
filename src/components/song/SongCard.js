@@ -19,15 +19,15 @@ const Build = ({ videos, router }) => {
                             className={`${style.video_card}`}
                             key={index}
                         >
-                            <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 bg-body rounded`}>
+                            <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 `}>
                                 <Image
-                                    width="350"
-                                    height="200"
+                                    width={350}
+                                    height={200}
+                                    className='img-fluid'
+                                    priority
                                     src={imageLink}
                                     alt={video.title}
-                                    className='img-fluid img_shine'
-                                    quality={40}
-                                    priority={true}
+                                    quality={100}
                                     draggable="false"
                                 />
 

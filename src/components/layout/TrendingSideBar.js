@@ -36,12 +36,15 @@ const TrendingSideBar = () => {
                         <Col className={`${style.trending_card}  col-12 my-2`} key={index} onClick={() => router.push(generateUrl(e.title))}>
                             <Row className='justify-content-evenly'>
                                 <Col xl={5} lg={5} md={5} sm={5} xs={5} className='pr-0'>
-                                    <Image variant="bottom" src={e.thumbnail} className='img-fluid py-2' alt={title}
+                                    <Image
+                                        src={e.thumbnail}
+                                        className='img-fluid py-2'
+                                        alt={title}
                                         width="350"
                                         height="200"
-                                        quality={40}
-                                        priority={true}
-                                        draggable="false" />
+                                        quality={100}
+                                        priority
+                                    />
                                 </Col>
                                 <Col xl={7} lg={7} md={7} sm={7} xs={7} className='p-0' style={{ margin: 'auto' }}>
                                     <Row className={style.card_body}>
