@@ -24,10 +24,8 @@ const Build = ({ videos, router }) => {
                                     width={350}
                                     height={200}
                                     className='img-fluid'
-                                    priority
                                     src={imageLink}
                                     alt={video.title}
-                                    quality={100}
                                     draggable="false"
                                 />
 

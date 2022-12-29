@@ -23,11 +23,9 @@ const VideoCard = ({ video, title }) => {
                     <Image draggable="false"
                         width={500}
                         height={200}
-                        quality={100}
                         alt={video.title}
                         src={video.thumbnail}
                         className='shadow img-fluid'
-                        priority
                     />
                 </Col>
             </Row>

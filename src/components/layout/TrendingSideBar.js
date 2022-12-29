@@ -40,10 +40,8 @@ const TrendingSideBar = () => {
                                         src={e.thumbnail}
                                         className='img-fluid py-2'
                                         alt={title}
-                                        width="350"
-                                        height="200"
-                                        quality={100}
-                                        priority
+                                        width={350}
+                                        height={200}
                                     />
                                 </Col>
                                 <Col xl={7} lg={7} md={7} sm={7} xs={7} className='p-0' style={{ margin: 'auto' }}>
