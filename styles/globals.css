@@ -40,6 +40,12 @@ h3 {
   margin: auto;
 }
 
+.trending-title {
+  font-family: Mulish;
+  margin: auto;
+  font-weight: 400;
+}
+
 h6 {
   display: inline;
   padding: auto;
