@@ -57,9 +57,7 @@ const VideoCard = ({ video, title }) => {
 
             <Row className='justify-content-center'>
                 <Col xl={10} lg={10} md={10} sm={11} xs={'auto'}>
-                    <p>
-                        <ul>{video.tags.map((e, i) => <span key={i}> {i > 0 && <span className='mx-2'> ∙ </span>} {e}</span>)}</ul>
-                    </p>
+                    {video.tags.map((e, i) => <span key={i}> {i > 0 && <span className='mx-2'> ∙ </span>} {e}</span>)}
                 </Col>
             </Row>
 

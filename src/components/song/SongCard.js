@@ -36,17 +36,15 @@ const Build = ({ videos, router }) => {
                                     </Card.Title>
 
                                     <Card.Text className={`${style.card_text}`}>
-                                        <p>
-                                            {tags.map((e, i) =>
-                                                <span
-                                                    key={i}
-                                                    className='text-muted'
-                                                >
-                                                    {i > 0 && <span className='mx-2'>•</span>}
-                                                    {e}
-                                                </span>
-                                            )}
-                                        </p>
+                                        {tags.map((e, i) =>
+                                            <span
+                                                key={i}
+                                                className='text-muted'
+                                            >
+                                                {i > 0 && <span className='mx-2'>•</span>}
+                                                {e}
+                                            </span>
+                                        )}
                                     </Card.Text>
 
                                     <Divider />
