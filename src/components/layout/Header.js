@@ -25,7 +25,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                     <Navbar.Collapse>
                         <Navbar.Offcanvas
-                            style={{ width: 'auto' }}
+                            style={{ width: '60%' }}
                             id={`offcanvasNavbar-expand-${expand}`}
                             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                             placement="end"
@@ -45,7 +45,10 @@ const Header = () => {
                                             onClick={() => {
                                                 router.push(tab.path);
                                             }}>
-                                            <><span>{tab.icon}<span className={style.nav_content}>{tab.title}</span></span></>
+                                            <span className={style.nav_content}>
+                                                <>{tab.icon}</>
+                                                <>{tab.title}</>
+                                            </span>
                                         </Nav.Link>
                                     ))}
                                 </Nav>

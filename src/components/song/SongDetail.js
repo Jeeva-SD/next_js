@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import { FiUploadCloud } from 'react-icons/fi';
+// import noImage from '../../assets/images/no_image.png';
 import { getPlayTime } from '../../helper/getPlayTime';
 import { getPublishedTime } from '../../helper/generateUrl';
 import { host } from '../../constants/config';
@@ -51,6 +52,14 @@ const VideoCard = ({ video, title }) => {
                 >
                     <AiOutlineDownload />
                     <b className='download_button'>Download (mp3)</b>
+                </Col>
+            </Row>
+
+            <Row className='justify-content-center'>
+                <Col xl={10} lg={10} md={10} sm={11} xs={'auto'}>
+                    <p>
+                        <ul>{video.tags.map((e, i) => <span key={i}> {i > 0 && <span className='mx-2'> ∙ </span>} {e}</span>)}</ul>
+                    </p>
                 </Col>
             </Row>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Col, Container, Row, Card } from 'react-bootstrap';
-// import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import Divider from '../common/Divider';
 import { generateUrl } from '../../helper/generateUrl';
@@ -14,6 +13,8 @@ const Build = ({ videos, router }) => {
             <Row className='justify-content-center'>
                 {videos?.slice(0, 15).map((video, index) => {
                     const imageLink = video.thumbnail;
+                    const tags = video?.tags;
+
                     return (
                         <Col lg={4} md={6} sm={11} xs={11}
                             className={`${style.video_card}`}
@@ -33,8 +34,19 @@ const Build = ({ videos, router }) => {
                                     <Card.Title className={`${style.card_title}`}>
                                         {video.title}
                                     </Card.Title>
+
                                     <Card.Text className={`${style.card_text}`}>
-                                        {video.description}
+                                        <p>
+                                            {tags.map((e, i) =>
+                                                <span
+                                                    key={i}
+                                                    className='text-muted'
+                                                >
+                                                    {i > 0 && <span className='mx-2'>•</span>}
+                                                    {e}
+                                                </span>
+                                            )}
+                                        </p>
                                     </Card.Text>
 
                                     <Divider />
@@ -47,13 +59,6 @@ const Build = ({ videos, router }) => {
                                         <Col className={`${style.card_col} col-1 px-1`}>
                                             <Divider type={1} />
                                         </Col>
-                                        {/* <Col className={`${style.duration} col-3 p-0`}>
-                                        <BiTimeFive />
-                                        <span className={style.footer_span}>2min 50sec</span>
-                                    </Col>
-                                    <Col className={`${style.card_col} col-1 p-0`}>
-                                        <Divider type={1} />
-                                    </Col> */}
                                         <Col className={`${style.card_col} col-4 p-0`} onClick={() => router.push(`${generateUrl(video.title)}`)}>
                                             <AiOutlineDownload />
                                             <span className={style.footer_span}><b className={style.bold_download}>Download</b></span>
@@ -61,8 +66,7 @@ const Build = ({ videos, router }) => {
                                     </Row>
                                 </Card.Body>
                             </Card>
-                        </Col>
-                    );
+                        </Col>)
                 })}
             </Row>
         </Container>

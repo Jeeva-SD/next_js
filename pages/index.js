@@ -6,8 +6,7 @@ import { host } from '../src/constants/config';
 import { GET } from '../src/helper/api';
 
 export const getStaticProps = async () => {
-  const response = await GET(`${host}/api/youtube/video/list`, { page: 1, count: 18 });
-  // const totalVideos = await GET(`${host}/api/youtube/videos`, { videoCount:1 });
+  const response = await GET(`${host}/api/youtube/video/list`, { page: 1, count: 18, description: 0 });
 
   return {
     props: { videos: response?.data },
@@ -17,6 +16,8 @@ export const getStaticProps = async () => {
 
 export default function Home({ videos }) {
   const router = useRouter();
+
+  // console.log(videos)
 
   return (
     <Container>
@@ -41,8 +42,6 @@ export default function Home({ videos }) {
         <meta property="og:url" content="https://jee6.in" />
         <meta property="og:image" content="https://jee6.in/favicon.ico" />
         <link href="https://jee6.in/" rel="canonical" />
-        {/* <meta name="google" content="notranslate" /> */}
-
         <link rel="shortcut icon" href="/favicon.ico" />
 
         <meta name="twitter:card" content="Jee6.in | Download trending songs in India" />

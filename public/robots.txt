@@ -1,5 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: https://www.jee6.in/sitemap.xml
+# Host
+Host: https://jee6.in
+
+# Sitemaps
+Sitemap: https://jee6.in/sitemap.xml
