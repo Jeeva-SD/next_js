@@ -14,8 +14,9 @@ const Footer = () => {
 
                 <Col className='col-10 mt-2'>
                     <b className='mx-3 pointer anchor' onClick={() => router.push('/')}>Home</b>
-                    <b className='mx-3 pointer anchor' onClick={() => router.push('/p/contact')}>Contact</b>
-                    <b className='mx-3 pointer anchor' onClick={() => router.push('/p/privacy')}>Privacy policy</b>
+                    <b className='mx-3 pointer anchor' onClick={() => router.push('/p/privacy')}>Privacy Policy</b>
+                    <b className='mx-3 pointer anchor' onClick={() => router.push('/p/terms-condition')}>Terms & Conditions</b>
+                    <b className='mx-3 pointer anchor' onClick={() => router.push('/p/disclaimer')}>Disclaimer</b>
                 </Col>
             </Row>
         </footer>
