@@ -2,7 +2,7 @@ import Script from 'next/script';
 import Layout from '../src/components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
-import { host } from '../src/constants/config';
+// import { host } from '../src/constants/config';
 
 // export const getStaticProps = async () => {
 //   const response = await GET(`${host}/api/youtube/videos`);
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         src="https://www.googletagmanager.com/gtag/js?id=G-ZZXTTEB55X"
       />
 
-      <Script strategy="lazyOnload">
+      <Script id="analytics" strategy="afterInteractive">
         {
           ` window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
