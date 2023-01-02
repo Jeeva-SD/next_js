@@ -16,6 +16,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+
+      <Script
+        strategy="lazyOnload"
+        async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
+        crossorigin="anonymous"
+      />
+
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-ZZXTTEB55X"
