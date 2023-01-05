@@ -30,7 +30,7 @@ export default function Home({ videos }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content='Jee6 allows you to download the latest trending songs in India' />
         <meta name="keywords" content='download trending songs, trending love song, download latest songs in mp3, download trending love songs, latest Tamil songs' />
-
+        <meta name="google-site-verification" content="ouehaE2vSC20Uxgdbq94lWEqG9hjcANUPIeLsJDuypo" />
         <meta name="Rating" content="General" />
         <meta name="audience" content="all" />
         {/* <link rel="alternate" type="application/rss+xml" title="VediMuthu RSS Feed" href="/feed.xml" /> */}
