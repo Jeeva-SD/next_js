@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import Image from 'next/image';
 import { Col, Container, Row, Card } from 'react-bootstrap';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
@@ -10,6 +11,36 @@ const Build = ({ videos, router }) => {
 
     return (
         <Container className={`mt-5 ${style.home_card_container}`}>
+            <Row className='justify-content-center'>
+                <Col className='col-10'>
+
+                    {/* <Script id="analytics" strategy="afterInteractive">
+                        {
+                            ` window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZZXTTEB55X');`
+                        }
+                    </Script> */}
+
+                    <Script async
+                        id="Adsense-id"
+                        strategy="afterInteractive"
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
+                        crossorigin="anonymous"
+                    />
+
+                    <ins className="adsbygoogle"
+                        style={{ display: "block" }}
+                        data-ad-client="ca-pub-6663847551285629"
+                        data-ad-slot="4890803756"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <Script id="google-ads" strategy="afterInteractive">
+                        (adsbygoogle = window.adsbygoogle || []).push({ })
+                    </Script>
+                </Col>
+            </Row>
             <Row className='justify-content-center'>
                 {videos?.slice(0, 15).map((video, index) => {
                     const imageLink = video.thumbnail;
