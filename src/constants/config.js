@@ -8,4 +8,5 @@ import { env } from '../../next.config';
 // export const host = 'https://jee6.gq';
 // export const host = 'http://localhost:6040';
 
-export const host = 'https://api.jee6.in';
+// export const host = 'https://api.jee6.in';
+export const host = 'https://server.jee6.in';
