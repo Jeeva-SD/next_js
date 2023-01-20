@@ -84,8 +84,8 @@ const VideoCard = ({ video, title }) => {
                     <p>
                         Stay up to date on the latest and hottest ringtones by following our YouTube channel.
                         We regularly upload new and exclusive ringtones for our subscribers to enjoy.
-                        From pop to hip-hop, we've got a wide selection of ringtones to choose from.
-                        Don't miss out on the fun, hit the subscribe button and join our community of ringtone enthusiasts today!
+                        From pop to hip-hop, we have got a wide selection of ringtones to choose from.
+                        Dont miss out on the fun, hit the subscribe button and join our community of ringtone enthusiasts today!
                     </p>
                 </Col>
             </Row>

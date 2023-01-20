@@ -22,7 +22,7 @@ const TitleText = ({ title, height, wordCount, fontSize = 20 }) => {
         }
 
         return { text: titleText, color }
-    }, [title]);
+    }, [title, titleColor, wordCount]);
 
     return (
         <Container className={style.container} style={{ color: color, height, minHeight: height }}>
