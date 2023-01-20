@@ -9,6 +9,11 @@ import { generateTitle, generateUrl, getPublishedTime } from '../../helper/gener
 import Underline from '../common/Underline';
 import Spinner from '../common/Spinner';
 import style from '../../../styles/trendingSidebar.module.css';
+import LetterAvatar from '../common/LetterAvatar';
+import { BiTimeFive } from 'react-icons/bi';
+import { getPlayTime } from '../../helper/getPlayTime';
+import { AiFillCrown } from 'react-icons/ai';
+import TitleText from '../common/TitleText';
 // import { trendingData } from '../../constants/trendingData';
 
 const TrendingSideBar = () => {
@@ -16,7 +21,7 @@ const TrendingSideBar = () => {
     const [trendingVideos, setTrendingVideos] = useState([]);
 
     useEffect(() => {
-        GET(`${host}/api/youtube/video/trending`, { trending: 1, count: 15 })
+        GET(`${host}/api/youtube/video/trending`, { trending: 1, count: 10 })
             .then(response => setTrendingVideos(response.data));
     }, []);
 
@@ -30,27 +35,23 @@ const TrendingSideBar = () => {
             </Row>
 
             <Row className='justify-content-center'>
-                {trendingVideos?.trendingVideos?.map((e, index) => {
+                {trendingVideos?.trendingVideos?.filter((e, i) => i <= 10).map((e, index) => {
                     const title = generateTitle(e.title);
                     return (
                         <Col className={`${style.trending_card} col-12 my-2`} key={index} onClick={() => router.push(`/${generateUrl(e.title)}`)}>
-                            <Row className='justify-content-evenly'>
-                                <Col xl={5} lg={5} md={5} sm={5} xs={5} className='pr-0'>
-                                    <Image
-                                        src={e.thumbnail}
-                                        className='img-fluid py-2'
-                                        alt={title}
-                                        width={350}
-                                        height={200}
-                                    />
+                            <Row className='justify-content-center p-2'>
+                                <Col className='col-4 p-0'>
+                                    {/* <AiFillCrown color='orange' fontSize={50} style={{ marginRight: '5px' }} /> */}
+                                    <TitleText title={e.title} height={'100px'} wordCount={2} fontSize={10} />
                                 </Col>
-                                <Col xl={7} lg={7} md={7} sm={7} xs={7} className='p-0' style={{ margin: 'auto' }}>
-                                    <Row className={style.card_body}>
-                                        <Col className={`${style.title} col-11`}>
+                                <Col style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className='col-8 text-center'>
+                                    <Row>
+                                        <Col className='col-12'>
                                             <span className='trending-title'>{title}</span>
                                         </Col>
-                                        <Col className='col-11'>
-                                            <span className='text-muted published_date'><FiUploadCloud /> {getPublishedTime(e.publishedAt)}</span>
+                                        <Col>
+                                            <><BiTimeFive color='brown' style={{ marginRight: '5px' }} /> {getPlayTime(e.duration)}</>
+
                                         </Col>
                                     </Row>
                                 </Col>
@@ -70,3 +71,15 @@ const TrendingSideBar = () => {
 };
 
 export default TrendingSideBar;
+
+
+{/* <Col xl={2} lg={2} md={2} sm={2} xs={2} className='pr-0 mx-2'> */ }
+{/* <Image
+        src={e.thumbnail}
+        className='img-fluid py-2'
+        alt={title}
+        width={350}
+        height={200}
+    /> */}
+{/* <LetterAvatar char={title.charAt(0)} /> */ }
+{/* </Col> */ }

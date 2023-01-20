@@ -8,26 +8,32 @@ import { FiUploadCloud } from 'react-icons/fi';
 import { getPlayTime } from '../../helper/getPlayTime';
 import { getPublishedTime } from '../../helper/generateUrl';
 import { host } from '../../constants/config';
+import TitleText from '../common/TitleText';
+import { AiFillYoutube } from 'react-icons/ai';
+import { MdHighQuality } from 'react-icons/md';
+import { GiLoveSong } from 'react-icons/gi';
 
 const VideoCard = ({ video, title }) => {
 
     const handleDownload = videoId => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`, '_self');
 
     return (
-        <Container className='mt-5 m-0 p-0'>
+        <Container style={{ borderRadius: '5px' }} className='mt-5 m-0 p-0 border shadow-sm'>
             <Row className='pt-3 justify-content-center'>
                 <Col className='col-10'><h1>{title}</h1></Col>
             </Row>
 
             <Row className='w-100 justify-content-center m-0 p-0'>
                 <Col xl={8} lg={8} md={8} sm={12} xs={12} className='mt-3 text-center'>
-                    <Image draggable="false"
+                    {/* <Image draggable="false"
                         width={500}
                         height={200}
                         alt={video.title}
                         src={video.thumbnail}
                         className='shadow img-fluid'
-                    />
+                    /> */}
+
+                    <TitleText title={title} />
                 </Col>
             </Row>
 
@@ -55,27 +61,46 @@ const VideoCard = ({ video, title }) => {
                 </Col>
             </Row>
 
-            <Row className='justify-content-center'>
-                <Col className='col-auto'>
-                    <p>{title}</p>
+            <Row className='justify-content-center mt-5'>
+                <Col xl={10} lg={10} md={10} sm={11} xs={11}>
+                    <div className='text-center pointer' onClick={() => window.open('/', '_self')}>
+                        <MdHighQuality fontSize={'80px'} color={'blue'} />
+                    </div>
+                    <b>HIGHEST QUALITY AS POSSIBLE</b>
+                    <p>
+                        Our commitment is to provide you with the highest quality content possible.
+                        We understand the importance of clear, accurate, and informative content and strive to deliver it to you every time.
+                        Trust us to deliver exceptional content that meets your needs and exceeds your expectations.
+                    </p>
                 </Col>
             </Row>
 
             <Row className='justify-content-center'>
-                <Col xl={10} lg={10} md={10} sm={11} xs={'auto'}>
-                    {video.tags.map((e, i) => <span key={i}> {i > 0 && <span className='mx-2'> ∙ </span>} {e}</span>)}
+                <Col xl={10} lg={10} md={10} sm={11} xs={11}>
+                    <div className='text-center pointer' onClick={() => window.open('https://www.youtube.com/@jee__6334')}>
+                        <AiFillYoutube color={'red'} fontSize={'80px'} />
+                    </div>
+                    <b>FOLLOW US ON YOUTUBE</b>
+                    <p>
+                        Stay up to date on the latest and hottest ringtones by following our YouTube channel.
+                        We regularly upload new and exclusive ringtones for our subscribers to enjoy.
+                        From pop to hip-hop, we've got a wide selection of ringtones to choose from.
+                        Don't miss out on the fun, hit the subscribe button and join our community of ringtone enthusiasts today!
+                    </p>
                 </Col>
             </Row>
 
-            <Row className='justify-content-center mt-5 pt-3 m-0 p-0'>
-                <Col xl={10} lg={10} md={10} sm={11} xs={'auto'}>
-                    <pre style={{
-                        overflowX: 'auto',
-                        wordWrap: 'break-word',
-                        whiteSpace: 'pre-wrap'
-                    }}>
-                        {video.description}
-                    </pre>
+            <Row className='justify-content-center'>
+                <Col xl={10} lg={10} md={10} sm={11} xs={11}>
+                    <div className='text-center pointer' onClick={() => window.open('https://www.youtube.com/@jee__6334')}>
+                        <GiLoveSong color={'orange'} fontSize={'80px'} />
+                    </div>
+                    <b>{title.toUpperCase()}</b>
+                    <p>
+                        <ul>
+                            {video.tags.map((e, i) => <li key={i}>  {e}</li>)}
+                        </ul>
+                    </p>
                 </Col>
             </Row>
         </Container>

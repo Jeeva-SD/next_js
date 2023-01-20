@@ -6,6 +6,7 @@ import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import Divider from '../common/Divider';
 import { generateUrl } from '../../helper/generateUrl';
 import style from '../../../styles/home_page.module.scss';
+import TitleText from '../common/TitleText';
 
 const Build = ({ videos, router }) => {
 
@@ -52,14 +53,17 @@ const Build = ({ videos, router }) => {
                             key={index}
                         >
                             <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 `}>
-                                <Image
+                                {/* <Image
                                     width={350}
                                     height={200}
                                     className='img-fluid'
                                     src={imageLink}
                                     alt={video.title}
                                     draggable="false"
-                                />
+                                /> */}
+
+                                <TitleText title={video.title} />
+
 
                                 <Card.Body>
                                     <Card.Title className={`${style.card_title}`}>

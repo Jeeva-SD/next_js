@@ -13,9 +13,9 @@ const Footer = () => {
                 </Col>
 
                 <Col xl={'auto'} lg={'auto'} md={'auto'} sm={12} xs={12} className='mt-2'><b className='mx-3 pointer anchor' onClick={() => router.push('/')}>Home</b></Col>
+                <Col xl={'auto'} lg={'auto'} md={'auto'} sm={12} xs={12} className='mt-2'><b className='mx-3 pointer anchor' onClick={() => router.push('/p/disclaimer')}>Disclaimer</b></Col>
                 <Col xl={'auto'} lg={'auto'} md={'auto'} sm={12} xs={12} className='mt-2'><b className='mx-3 pointer anchor' onClick={() => router.push('/p/privacy')}>Privacy Policy</b></Col>
                 <Col xl={'auto'} lg={'auto'} md={'auto'} sm={12} xs={12} className='mt-2'><b className='mx-3 pointer anchor' onClick={() => router.push('/p/terms-condition')}>Terms & Conditions</b></Col>
-                <Col xl={'auto'} lg={'auto'} md={'auto'} sm={12} xs={12} className='mt-2'><b className='mx-3 pointer anchor' onClick={() => router.push('/p/disclaimer')}>Disclaimer</b></Col>
             </Row>
         </footer>
     );
