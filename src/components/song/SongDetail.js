@@ -13,9 +13,11 @@ import { AiFillYoutube } from 'react-icons/ai';
 import { MdHighQuality } from 'react-icons/md';
 import { GiLoveSong } from 'react-icons/gi';
 
-const VideoCard = ({ video, title }) => {
+const VideoCard = ({ video, title, keywords }) => {
 
     const handleDownload = videoId => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`, '_self');
+
+    const tags = keywords?.length > 0 ? keywords : video.tags;
 
     return (
         <Container style={{ borderRadius: '5px' }} className='mt-5 m-0 p-0 border shadow-sm'>
@@ -37,7 +39,7 @@ const VideoCard = ({ video, title }) => {
                 </Col>
             </Row>
 
-            <Row className='justify-content-center m-0 mt-3'>
+            <Row className='justify-content-center m-0 mt-4'>
                 <Col className='col-auto border shadow-sm rounded p-2 my-2' style={{ display: 'flex', alignItems: 'center' }}>
                     <AiFillCrown color='orange' style={{ marginRight: '5px' }} />
                     {video.channelTitle}
@@ -51,7 +53,7 @@ const VideoCard = ({ video, title }) => {
                 </Col>
             </Row>
 
-            <Row className='justify-content-center mt-5 mb-5'>
+            <Row className='justify-content-center mt-4 mb-5'>
                 <Col className='col-auto'
                     onClick={() => handleDownload(video.videoId)}
                     style={{ display: 'flex', alignItems: 'center', color: 'blue', fontSize: '30px', cursor: 'pointer' }}
@@ -98,7 +100,7 @@ const VideoCard = ({ video, title }) => {
                     <b>{title.toUpperCase()}</b>
                     <p>
                         <ul>
-                            {video.tags.map((e, i) => <li key={i}>  {e}</li>)}
+                            {tags.map((e, i) => <li key={i}>  {e}</li>)}
                         </ul>
                     </p>
                 </Col>

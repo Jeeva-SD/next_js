@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { GET } from '../src/helper/api';
 import { host } from '../src/constants/config';
 import { generateDescription, generateTags, generateTitle, generateUrl } from '../src/helper/generateUrl';
@@ -36,17 +36,30 @@ const Post = ({ data }) => {
     const description = generateDescription({ ...video, title });
     const tags = generateTags({ ...video, title });
 
+
+    const getTags = async () => {
+        const response = await GET(`${host}/api/youtube/video/tag?q=${title}&type=Google`);
+        setKeyWords([title, ...response])
+        return response;
+    }
+
+    useEffect(() => {
+        getTags()
+    }, [title]);
+
+    const [keywords, setKeyWords] = useState([]);
+
     return (
         <>
             <Head>
                 <title>{title}</title>
-                <meta name="description" content={description} />
+                <meta name="description" content={keywords.length > 0 ? keywords?.slice(0, 10) : description} />
                 <meta name="keywords" content={tags}></meta>
                 <meta name="robots" content="index, follow" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             </Head>
-            <SongDetail video={video} title={title} />
+            <SongDetail video={video} title={title} keywords={keywords} />
         </>
     );
 };
