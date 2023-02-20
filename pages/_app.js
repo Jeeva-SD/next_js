@@ -2,6 +2,7 @@ import Script from 'next/script';
 import Layout from '../src/components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
+import Head from 'next/head';
 // import { host } from '../src/constants/config';
 
 // export const getStaticProps = async () => {
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-
+    <Head><link href="https://www.jee6.in" rel="canonical" /></Head>
       <Script
         strategy="lazyOnload"
         async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
