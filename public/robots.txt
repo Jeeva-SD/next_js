@@ -6,4 +6,4 @@ Allow: /
 Host: https://www.jee6.in
 
 # Sitemaps
-Sitemap: https://www.jee6.in/sitemap.xml
+Sitemap: https://www.jee6.in/map.xml

@@ -24,7 +24,7 @@ const Build = ({ videos, router }) => {
                         }
                     </Script> */}
 
-                    <Script async
+                    {/* <Script async
                         id="Adsense-id"
                         strategy="afterInteractive"
                         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
@@ -39,20 +39,40 @@ const Build = ({ videos, router }) => {
                         data-full-width-responsive="true"></ins>
                     <Script id="google-ads" strategy="afterInteractive">
                         (adsbygoogle = window.adsbygoogle || []).push({ })
-                    </Script>
+                    </Script> */}
                 </Col>
             </Row>
             <Row className='justify-content-center'>
                 {videos?.slice(0, 15).map((video, index) => {
                     const imageLink = video.thumbnail;
-                    const tags = video?.tags;
+                    const tags = video?.tags.filter((e, index) => index < 4);
 
                     return (
                         <Col lg={4} md={6} sm={11} xs={11}
                             className={`${style.video_card}`}
                             key={index}
                         >
-                            <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 `}>
+                            {index === 4 &&
+                                <>
+                                    <Script async
+                                        id="Adsense-id"
+                                        strategy="afterInteractive"
+                                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
+                                        crossorigin="anonymous"
+                                    />
+
+                                    <ins className="adsbygoogle"
+                                        style={{ display: "block" }}
+                                        data-ad-client="ca-pub-6663847551285629"
+                                        data-ad-slot="4890803756"
+                                        data-ad-format="auto"
+                                        data-full-width-responsive="true"></ins>
+                                    <Script id="google-ads" strategy="afterInteractive">
+                                        (adsbygoogle = window.adsbygoogle || []).push({ })
+                                    </Script>
+                                </>
+                            }
+                            {index !== 4 && <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 `}>
                                 {/* <Image
                                     width={350}
                                     height={200}
@@ -98,8 +118,8 @@ const Build = ({ videos, router }) => {
                                         </Col>
                                     </Row>
                                 </Card.Body>
-                            </Card>
-                        </Col>)
+                            </Card>}
+                        </Col>);
                 })}
             </Row>
         </Container>
