@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
@@ -63,7 +62,7 @@ const VideoCard = ({ video, title, keywords }) => {
                 </Col>
             </Row>
 
-            <Row className='justify-content-center mt-5'>
+            {/* <Row className='justify-content-center mt-5'>
                 <Col xl={10} lg={10} md={10} sm={11} xs={11}>
                     <div className='text-center pointer' onClick={() => window.open('/', '_self')}>
                         <MdHighQuality fontSize={'80px'} color={'blue'} />
@@ -90,13 +89,13 @@ const VideoCard = ({ video, title, keywords }) => {
                         Dont miss out on the fun, hit the subscribe button and join our community of ringtone enthusiasts today!
                     </p>
                 </Col>
-            </Row>
+            </Row> */}
 
             <Row className='justify-content-center'>
                 <Col xl={10} lg={10} md={10} sm={11} xs={11}>
-                    <div className='text-center pointer' onClick={() => window.open('https://www.youtube.com/@jee__6334')}>
+                    {/* <div className='text-center pointer' onClick={() => window.open('https://www.youtube.com/@jee__6334')}>
                         <GiLoveSong color={'orange'} fontSize={'80px'} />
-                    </div>
+                    </div> */}
                     <b>{title.toUpperCase()}</b>
                     <p>
                         <ul>
