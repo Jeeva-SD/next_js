@@ -6,7 +6,7 @@ import { MdHighQuality } from 'react-icons/md';
 
 const about = () => {
     return (
-        <Container className='mt-5 pt-5'>
+        <Container className='mt-5 pt-5 border rounded'>
             <Row className='justify-content-center'>
                 <Col className='col-auto'>
                     <h4>About Jee6!</h4>

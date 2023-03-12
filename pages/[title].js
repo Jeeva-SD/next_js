@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
+import Head from 'next/head';
+import SongDetail from '../src/components/song/SongDetail';
 import { GET } from '../src/helper/api';
 import { host } from '../src/constants/config';
 import { generateDescription, generateTags, generateTitle, generateUrl } from '../src/helper/generateUrl';
-import SongDetail from '../src/components/song/SongDetail';
-import Head from 'next/head';
 
 export const getStaticPaths = async () => {
     try {
@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
     try {
-        const response = await GET(`${host}/api/youtube/video/list`);
+        const response = await GET(`${host}/api/youtube/video/list`, { description: 0 });
         const data = response?.data.filter(video => generateUrl(video.title) === params.title);
 
         return {
@@ -36,16 +36,15 @@ const Post = ({ data }) => {
     const description = generateDescription({ ...video, title });
     const tags = generateTags({ ...video, title });
 
-
-    const getTags = async () => {
+    const getTags = useCallback(async () => {
         const response = await GET(`${host}/api/youtube/video/tag?q=${title}&type=Google`);
-        setKeyWords([title, ...response])
+        setKeyWords([title, ...response]);
         return response;
-    }
+    }, [title]);
 
     useEffect(() => {
-        getTags()
-    }, [title]);
+        getTags();
+    }, [title, getTags]);
 
     const [keywords, setKeyWords] = useState([]);
 

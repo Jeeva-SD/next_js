@@ -52,6 +52,24 @@ const VideoCard = ({ video, title, keywords }) => {
                 </Col>
             </Row>
 
+            <Row className='justify-content-center'>
+                <Col className='col-auto text-center'>
+                    <>
+                        <ins className="adsbygoogle"
+                            style={{ display: 'block' }}
+                            data-ad-client="ca-pub-6663847551285629"
+                            data-ad-slot="4890803756"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true">
+
+                        </ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({ });
+                        </script>
+                    </>
+                </Col>
+            </Row>
+
             <Row className='justify-content-center mt-4 mb-5'>
                 <Col className='col-auto'
                     onClick={() => handleDownload(video.videoId)}
@@ -96,7 +114,7 @@ const VideoCard = ({ video, title, keywords }) => {
                     {/* <div className='text-center pointer' onClick={() => window.open('https://www.youtube.com/@jee__6334')}>
                         <GiLoveSong color={'orange'} fontSize={'80px'} />
                     </div> */}
-                    <b>{title.toUpperCase()}</b>
+                    <h2><b>{title.toUpperCase()}</b></h2>
                     <p>
                         <ul>
                             {tags.map((e, i) => <li key={i}>  {e}</li>)}

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import style from '../../../styles/title_text.module.css';
 import { colorArr } from '../../constants';
 import { generateTitle } from '../../helper/generateUrl';
+import style from '../../../styles/title_text.module.css';
 
 const TitleText = ({ title, height, wordCount, fontSize = 20 }) => {
 
@@ -17,22 +17,20 @@ const TitleText = ({ title, height, wordCount, fontSize = 20 }) => {
         const colorIndex = Number((Math.random() * (titleColor.length - 1)).toFixed(0));
         const color = titleColor[colorIndex];
 
-        if (wordCount) {
-            titleText = titleText.split(' ').filter((e, i) => i < wordCount).join(' ')
-        }
+        if (wordCount) titleText = titleText.split(' ').filter((e, i) => i < wordCount).join(' ');
 
-        return { text: titleText, color }
+        return { text: titleText, color };
     }, [title, titleColor, wordCount]);
 
     return (
-        <Container className={style.container} style={{ color: color, height, minHeight: height }}>
+        <Container className={style.container} style={{ color, height, minHeight: height }}>
             <Row>
                 <Col className={style.title_text} style={{ fontSize }}>
                     {text.toUpperCase()}
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default TitleText
+export default TitleText;
