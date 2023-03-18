@@ -6,29 +6,33 @@ import TitleText from '../common/TitleText';
 import { generateUrl } from '../../helper/generateUrl';
 import style from '../../../styles/home_page.module.scss';
 
-const Build = ({ videos, router }) => {
+const Build = ({ videos, router, keywords }) => {
+
+    const adSenseCode = `
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
+    crossorigin="anonymous"></script>
+    <!-- Jee6 Display Ads Square -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-6663847551285629"
+        data-ad-slot="2054475167"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>`;
 
     return (
         <Container className={`mt-5 ${style.home_card_container}`}>
             <Row className='justify-content-center'>
                 <Col className='col-10 text-center'>
-                    <ins className="adsbygoogle"
-                        style={{ display: 'block' }}
-                        data-ad-client="ca-pub-6663847551285629"
-                        data-ad-slot="4890803756"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true">
-
-                    </ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({ });
-                    </script>
+                    <div dangerouslySetInnerHTML={{ __html: adSenseCode }}></div>
                 </Col>
             </Row>
             <Row className='justify-content-center'>
                 {videos?.slice(0, 15).map((video, index) => {
-                    const imageLink = video.thumbnail;
-                    const tags = video?.tags.filter((e, index) => index < 4);
+                    // const imageLink = video.thumbnail;
+                    const tags = keywords && keywords?.length > 0 ? keywords.filter((_e, index) => index < 4) : video?.tags.filter((_e, index) => index < 4);
 
                     return (
                         <Col lg={4} md={6} sm={11} xs={11}
@@ -36,36 +40,10 @@ const Build = ({ videos, router }) => {
                             key={index}
                         >
                             {index === 4 &&
-                                <>
-                                    <ins className="adsbygoogle"
-                                        style={{ display: 'block' }}
-                                        data-ad-client="ca-pub-6663847551285629"
-                                        data-ad-slot="4890803756"
-                                        data-ad-format="auto"
-                                        data-full-width-responsive="true">
-
-                                    </ins>
-                                    <script>
-                                        (adsbygoogle = window.adsbygoogle || []).push({ });
-                                    </script>
-                                </>
-                            }
+                                <div dangerouslySetInnerHTML={{ __html: adSenseCode }}></div>}
 
                             {index === 10 &&
-                                <>
-                                    <ins className="adsbygoogle"
-                                        style={{ display: 'block' }}
-                                        data-ad-client="ca-pub-6663847551285629"
-                                        data-ad-slot="4890803756"
-                                        data-ad-format="auto"
-                                        data-full-width-responsive="true">
-
-                                    </ins>
-                                    <script>
-                                        (adsbygoogle = window.adsbygoogle || []).push({ });
-                                    </script>
-                                </>
-                            }
+                                <div dangerouslySetInnerHTML={{ __html: adSenseCode }}></div>}
 
                             {index !== 4 && index !== 10 &&
                                 <Card className={`${style.card} cardImg shadow-sm text-center p-3 my-3 `}>

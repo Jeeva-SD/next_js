@@ -12,11 +12,11 @@ export const generateTitle = title => {
     let filteredText = (`${getFilteredText(title)} song download`);
     let txtArr = filteredText?.split(' ');
 
-    txtArr.forEach((word, i) => {
+    txtArr.forEach((_word, i) => {
         txtArr[i] = txtArr[i].charAt(0).toUpperCase() + txtArr[i].slice(1);
     });
 
-    return txtArr.join(" ");
+    return txtArr.join(" ").replace(/\s+/g, ' ');
 };
 
 export const generateDescription = ({ title, tags }) => {

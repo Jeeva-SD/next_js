@@ -8,15 +8,30 @@ import { getPlayTime } from '../../helper/getPlayTime';
 import { getPublishedTime } from '../../helper/generateUrl';
 import { host } from '../../constants/config';
 import TitleText from '../common/TitleText';
-import { AiFillYoutube } from 'react-icons/ai';
-import { MdHighQuality } from 'react-icons/md';
-import { GiLoveSong } from 'react-icons/gi';
+
+// import { AiFillYoutube } from 'react-icons/ai';
+// import { MdHighQuality } from 'react-icons/md';
+// import { GiLoveSong } from 'react-icons/gi';
 
 const VideoCard = ({ video, title, keywords }) => {
 
     const handleDownload = videoId => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`, '_self');
 
-    const tags = keywords?.length > 0 ? keywords : video.tags;
+    const tags = [...keywords, ...video?.tags];
+
+    const adSenseCode = `
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
+    crossorigin="anonymous"></script>
+    <!-- Jee6 Display Ads Square -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-6663847551285629"
+        data-ad-slot="2054475167"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>`;
 
     return (
         <Container style={{ borderRadius: '5px' }} className='mt-5 m-0 p-0 border shadow-sm'>
@@ -54,19 +69,7 @@ const VideoCard = ({ video, title, keywords }) => {
 
             <Row className='justify-content-center'>
                 <Col className='col-auto text-center'>
-                    <>
-                        <ins className="adsbygoogle"
-                            style={{ display: 'block' }}
-                            data-ad-client="ca-pub-6663847551285629"
-                            data-ad-slot="4890803756"
-                            data-ad-format="auto"
-                            data-full-width-responsive="true">
-
-                        </ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({ });
-                        </script>
-                    </>
+                    <div dangerouslySetInnerHTML={{ __html: adSenseCode }}></div>
                 </Col>
             </Row>
 
