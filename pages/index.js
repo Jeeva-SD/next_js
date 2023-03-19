@@ -1,6 +1,8 @@
+import { memo } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Container } from 'react-bootstrap';
+
 import SongCard from '../src/components/song/SongCard';
 import { host } from '../src/constants/config';
 import { GET } from '../src/helper/api';
@@ -14,7 +16,7 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Home({ videos }) {
+const Home = ({ videos }) => {
   const router = useRouter();
 
   return (
@@ -31,4 +33,6 @@ export default function Home({ videos }) {
       <SongCard videos={videos} router={router} />
     </Container >
   );
-}
+};
+
+export default memo(Home);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Head from 'next/head';
 
 import SongDetail from '../src/components/song/SongDetail';
@@ -66,7 +66,7 @@ const Post = ({ video, title, routeUrl, keywords }) => {
     );
 };
 
-export default Post;
+export default memo(Post);
 
     // const description = generateDescription({ ...video, title });
     // const tags = generateTags({ ...video, title });

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineDownload, AiFillCrown } from 'react-icons/ai';
 import { FiUploadCloud } from 'react-icons/fi';
-// import noImage from '../../assets/images/no_image.png';
+
 import { getPlayTime } from '../../helper/getPlayTime';
 import { getPublishedTime } from '../../helper/generateUrl';
 import { host } from '../../constants/config';
@@ -12,31 +12,39 @@ import TitleText from '../common/TitleText';
 // import { AiFillYoutube } from 'react-icons/ai';
 // import { MdHighQuality } from 'react-icons/md';
 // import { GiLoveSong } from 'react-icons/gi';
+// import noImage from '../../assets/images/no_image.png';
 
 const VideoCard = ({ video, title, keywords }) => {
 
-    const handleDownload = videoId => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`, '_self');
+    const [adSenseCode, setAdsenseCode] = useState(null);
+    const tags = useMemo(() => [...keywords, ...video?.tags], [keywords, video?.tags]);
+    const handleDownload = useCallback((videoId) => window.open(`${host}/api/download/youtube?id=${videoId}&format=audio`, '_self'), []);
 
-    const tags = [...keywords, ...video?.tags];
-
-    const adSenseCode = `
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
-    crossorigin="anonymous"></script>
-    <!-- Jee6 Display Ads Square -->
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-6663847551285629"
-        data-ad-slot="2054475167"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>`;
+    useEffect(() => {
+        setAdsenseCode(
+            `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6663847551285629"
+            crossorigin="anonymous"></script>
+            <!-- Jee6 Display Ads Square -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-6663847551285629"
+                data-ad-slot="2054475167"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>`
+        );
+    }, []);
 
     return (
         <Container style={{ borderRadius: '5px' }} className='mt-5 m-0 p-0 border shadow-sm'>
             <Row className='pt-3 justify-content-center'>
-                <Col className='col-10'><h1>{title}</h1></Col>
+                <Col className='col-10'>
+                    <article>
+                        <h1>{title}</h1>
+                    </article>
+                </Col>
             </Row>
 
             <Row className='w-100 justify-content-center m-0 p-0'>
@@ -59,8 +67,7 @@ const VideoCard = ({ video, title, keywords }) => {
                     {video.channelTitle}
                 </Col>
                 <Col className='col-auto border rounded shadow-sm p-2 mx-3 my-2' style={{ display: 'flex', alignItems: 'center' }}>
-
-                    <><BiTimeFive color='brown' style={{ marginRight: '5px' }} /> {getPlayTime(video.duration)}</>
+                    <BiTimeFive color='brown' style={{ marginRight: '5px' }} /> {getPlayTime(video.duration)}
                 </Col>
                 <Col className='col-auto border rounded shadow-sm p-2 my-2' style={{ display: 'flex', alignItems: 'center' }}>
                     <FiUploadCloud color='green' style={{ marginRight: '5px' }} /> {getPublishedTime(video.publishedAt)}
@@ -118,15 +125,16 @@ const VideoCard = ({ video, title, keywords }) => {
                         <GiLoveSong color={'orange'} fontSize={'80px'} />
                     </div> */}
                     <h2><b>{title.toUpperCase()}</b></h2>
-                    <p>
-                        <ul>
-                            {tags.map((e, i) => <li key={i}>  {e}</li>)}
-                        </ul>
-                    </p>
+
+                    <div>
+                        <article>
+                            {tags && tags?.length > 0 && tags.map((e, i) => <li key={i}>{e}</li>)}
+                        </article>
+                    </div>
                 </Col>
             </Row>
         </Container>
     );
 };
 
-export default VideoCard;
+export default memo(VideoCard);
