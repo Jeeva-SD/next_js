@@ -1,6 +1,6 @@
 const getFilteredText = txt => {
-    const noSpclTxt = txt?.split("|")[0]?.replace(/[^a-zA-Z ]/g, " ");
-    return noSpclTxt?.toLowerCase()?.replace(/\b(?:official|lyric|video|teaser|lyrical|audio|song)\b/gi, '').replace('  ', '').trim();
+    const noSpclTxt = txt?.split("|").filter((_e, index) => index < 2).join(' ').replace(/[^a-zA-Z ]/g, " ");
+    return noSpclTxt?.toLowerCase()?.replace(/\b(?:official|lyric|video|teaser|lyrical|audio|song|latest|songs|trailer|music|full)\b/gi, '').replace(/\s+/g, " ").trim();
 };
 
 export const generateUrl = title => {
